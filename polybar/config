@@ -1,0 +1,137 @@
+[bar/media]
+monitor = ${env:MONITOR:}
+enable-ipc = true
+
+;bottom = true
+
+;width = 100%:-32
+height = 24
+;offset-x = 16
+;offset-y = 44
+offset-y = 30
+
+border-bottom-size = 1
+border-color = #AAB2BF
+
+padding = 1
+module-margin = 1
+
+line-size = 2
+
+font-0 = "JetBrains Mono:size=12;2"
+font-1 = "JetBrainsMono Nerd Font Mono:size=20;4"
+font-2 = "Noto Sans:size=12;0"
+font-3 = "unifont:size=12;2"
+
+fixed-center = true
+background = #282C34
+foreground = #ABB2BF
+;radius = 12.0
+
+modules-left = net cpu
+modules-center = nowplaying music-prev music-play-pause music-next
+modules-right = ram vol github clock
+
+; System info
+
+[module/cpu]
+type = internal/cpu
+format = CPU: <label> <ramp-coreload>
+label = %percentage%%
+
+ramp-coreload-spacing = 0
+ramp-coreload-0-foreground = #98C379
+ramp-coreload-1-foreground = #98C379
+ramp-coreload-2-foreground = #98C379
+ramp-coreload-3-foreground = #E5C07B
+ramp-coreload-4-foreground = #E5C07B
+ramp-coreload-5-foreground = #E06C75
+ramp-coreload-6-foreground = #E06C75
+ramp-coreload-7-foreground = #E06C75
+
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+
+[module/ram]
+type = internal/memory
+format = <label>
+label = RAM: %percentage_used%% (%gb_used%)
+
+[module/net]
+type = internal/network
+interface = wlan0
+format-connected =  <label-connected>
+format-disconnected = 睊 <label-disconnected>
+label-connected = %essid% %downspeed:8% %upspeed:8%
+label-connected-foreground = #98C379
+label-disconnected = %ifname%
+label-disconnected-foreground = #E06C75
+
+; Music controls
+
+[module/nowplaying]
+type = custom/script
+tail = true
+format =  <label>
+format-foreground = #98C379
+exec = ~/.config/polybar/scroll_spotify_status.sh
+
+[module/music-prev]
+type = custom/script
+exec = echo "玲"
+format = <label>
+click-left = playerctl previous -p playerctld
+format-foreground = #98C379
+
+[module/music-play-pause]
+type = custom/script
+exec = echo "懶"
+click-left = playerctl play-pause -p playerctld
+format-foreground = #98C379
+
+[module/music-next]
+type = custom/script
+exec = echo "怜"
+format = <label>
+click-left = playerctl next -p playerctld
+format-foreground = #98C379
+
+[module/vol]
+type = internal/pulseaudio
+use-ui-max = false
+
+format-volume = 墳 <label-volume> <bar-volume>
+format-muted = <label-muted>
+
+label-muted = 婢 Muted
+label-muted-foreground = #E06C75
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #C678DD
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+
+[module/clock]
+type = internal/date
+time = %H:%M:%S
+label = %time%
+label-foreground = #61AFEF
+
+[module/github]
+type = internal/github
+token = ${file:~/.config/github.pat}
+user = ashhhleyyy
+label =  %notifications%
+label-offline =  Offline
+label-offline-foreground = #E06C75

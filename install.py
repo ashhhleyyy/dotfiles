@@ -81,6 +81,16 @@ COMPONENTS: List[Component] = [
         downloads={
             'https://raw.githubusercontent.com/dracula/alacritty/master/dracula.yml': '~/.config/alacritty/dracula.yml',
         }
+    ),
+    Component(
+        name='polybar',
+        files={
+            'polybar/config': '~/.config/polybar/config',
+            'polybar/get_spotify_status.sh': '~/.config/polybar/get_spotify_status.sh',
+            'polybar/launch.sh': '~/.config/polybar/launch.sh',
+            'polybar/music.py': '~/.config/polybar/music.py',
+            'polybar/scroll_spotify_status.sh': '~/.config/polybar/scroll_spotify_status.sh',
+        }
     )
 ]
 

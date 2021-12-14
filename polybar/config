@@ -43,10 +43,10 @@ ramp-coreload-spacing = 0
 ramp-coreload-0-foreground = #98C379
 ramp-coreload-1-foreground = #98C379
 ramp-coreload-2-foreground = #98C379
-ramp-coreload-3-foreground = #E5C07B
+ramp-coreload-3-foreground = #98C379
 ramp-coreload-4-foreground = #E5C07B
-ramp-coreload-5-foreground = #E06C75
-ramp-coreload-6-foreground = #E06C75
+ramp-coreload-5-foreground = #E5C07B
+ramp-coreload-6-foreground = #E5C07B
 ramp-coreload-7-foreground = #E06C75
 
 ramp-coreload-0 = ▁

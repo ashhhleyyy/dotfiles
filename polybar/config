@@ -90,8 +90,10 @@ click-left = playerctl previous -p playerctld
 format-foreground = #98C379
 
 [module/music-play-pause]
-type = custom/script
-exec = echo "懶"
+type = custom/ipc
+hook-0 = echo ""
+hook-1 = echo ""
+initial = 1
 click-left = playerctl play-pause -p playerctld
 format-foreground = #98C379
 

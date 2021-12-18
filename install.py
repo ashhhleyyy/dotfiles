@@ -90,6 +90,7 @@ COMPONENTS: List[Component] = [
             'polybar/launch.sh': '~/.config/polybar/launch.sh',
             'polybar/music.py': '~/.config/polybar/music.py',
             'polybar/scroll_spotify_status.sh': '~/.config/polybar/scroll_spotify_status.sh',
+            'polybar/update_play_pause.sh': '~/.config/polybar/update_play_pause.sh',
         }
     )
 ]

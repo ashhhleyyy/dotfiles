@@ -17,4 +17,6 @@ else
   polybar --reload media &
 fi
 
+~/.local/bin/mpris-watcher ~/.config/polybar/mpris_watcher.toml &
+
 echo "Bars launched!"

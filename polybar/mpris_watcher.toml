@@ -1,0 +1,3 @@
+player_name = "playerctld"
+on_playing = "~/.config/polybar/update_play_pause.sh --playing"
+on_paused = "~/.config/polybar/update_play_pause.sh --paused"

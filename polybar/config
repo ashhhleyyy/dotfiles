@@ -8,9 +8,9 @@ enable-ipc = true
 height = 24
 ;offset-x = 16
 ;offset-y = 44
-offset-y = 30
+offset-y = 29
 
-border-bottom-size = 1
+border-bottom-size = 0
 border-color = #AAB2BF
 
 padding = 1
@@ -29,7 +29,7 @@ foreground = #ABB2BF
 ;radius = 12.0
 
 modules-left = net cpu
-modules-center = nowplaying music-prev music-play-pause music-next
+modules-center = now-playing
 modules-right = ram vol github clock
 
 ; System info
@@ -75,34 +75,31 @@ label-disconnected-foreground = #E06C75
 
 ; Music controls
 
-[module/nowplaying]
-type = custom/script
-tail = true
-format =  <label>
-format-foreground = #98C379
-exec = ~/.config/polybar/scroll_spotify_status.sh
+[module/now-playing]
+type = internal/mpd
+host = localhost
+port = 6600
+password = ""
 
-[module/music-prev]
-type = custom/script
-exec = echo "玲"
-format = <label>
-click-left = playerctl previous -p playerctld
-format-foreground = #98C379
+format-online = <icon-prev> <toggle> <icon-next>  <icon-repeat> <icon-random>  <label-song>  <label-time>
+label-song-foreground = #98C379
 
-[module/music-play-pause]
-type = custom/ipc
-hook-0 = echo ""
-hook-1 = echo ""
-initial = 1
-click-left = playerctl play-pause -p playerctld
-format-foreground = #98C379
+icon-play = 
+icon-pause = 
+icon-stop = 
+icon-prev = ﭢ
+icon-next = ﭠ
+icon-random = 咽
+icon-repeat = 凌
 
-[module/music-next]
-type = custom/script
-exec = echo "怜"
-format = <label>
-click-left = playerctl next -p playerctld
-format-foreground = #98C379
+label-song =  %title% - %artist%
+label-offline =  mpd is offline
+label-offline-foreground = #E06C75
+
+bar-progress-width = 8
+bar-progress-indicator = |
+bar-progress-fill = ─
+bar-progress-empty = ─
 
 [module/vol]
 type = internal/pulseaudio

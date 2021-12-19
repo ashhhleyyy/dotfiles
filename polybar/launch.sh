@@ -4,6 +4,7 @@
 
 # Terminate already runnning bar instances.
 killall -q polybar
+killall -q mpris-watcher
 
 # Wait until the processes have been shut down.
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
@@ -17,6 +18,6 @@ else
   polybar --reload media &
 fi
 
-~/.local/bin/mpris-watcher ~/.config/polybar/mpris_watcher.toml &
+#~/.local/bin/mpris-watcher ~/.config/polybar/mpris_watcher.toml &
 
 echo "Bars launched!"
